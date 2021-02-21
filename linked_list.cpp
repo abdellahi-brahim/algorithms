@@ -52,20 +52,15 @@ int main(){
                     list.push_back(value);
                 }
                 else{
-                    it--;
-                    list.insert(it, value);
                     it++;
+                    list.insert(it, value);
+                    it--;
+                    it--;
                 }
             }
         }
-        ListIterator curr_ptr;
-        for(curr_ptr = list.begin(); curr_ptr != list.end(); ++curr_ptr) 
-            if(curr_ptr == it)
-                cout << '(' << *curr_ptr << ')';
-            else
-                cout << *curr_ptr << ' ';
-        cout << "\n";
     }
     for(int element : list) 
         cout << element << endl;
 }
+
