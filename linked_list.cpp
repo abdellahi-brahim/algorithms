@@ -8,12 +8,14 @@
 using namespace std;
 
 int main(){
-    std::list<int>list;
+    using LinkedList = std::list<int>;
+    using ListIterator = LinkedList::iterator;
+
+    LinkedList list;
     list.push_front(0);
+    ListIterator it = list.begin();
 
-    std::list<int>::iterator it = list.begin();
     std::string buffer;
-
     size_t pos = 0;
     std::string token;
     std::string delimiter = " ";
@@ -31,7 +33,7 @@ int main(){
         }
         //move right
         else if(buffer == "RIGHT"){
-            if(std::prev(list.end(), 1) != it)
+            if(--list.end() != it)
                 it++;
         }
         else{
@@ -46,7 +48,7 @@ int main(){
             }
             //insert right
             else{
-                if(std::prev(list.end(), 1) == it){
+                if(--list.end() == it){
                     list.push_back(value);
                 }
                 else{
@@ -56,9 +58,14 @@ int main(){
                 }
             }
         }
+        ListIterator curr_ptr;
+        for(curr_ptr = list.begin(); curr_ptr != list.end(); ++curr_ptr) 
+            if(curr_ptr == it)
+                cout << '(' << *curr_ptr << ')';
+            else
+                cout << *curr_ptr << ' ';
+        cout << "\n";
     }
-    std::list<int>::iterator curr_ptr;
-    for(curr_ptr = list.begin(); curr_ptr != list.end(); ++curr_ptr) 
-        cout << *curr_ptr << endl;
+    for(int element : list) 
+        cout << element << endl;
 }
-
