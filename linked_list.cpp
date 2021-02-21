@@ -52,10 +52,8 @@ int main(){
                     list.push_back(value);
                 }
                 else{
-                    it++;
-                    list.insert(it, value);
-                    it--;
-                    it--;
+                    ListIterator tmp = it;
+                    list.insert(++tmp, value);
                 }
             }
         }
