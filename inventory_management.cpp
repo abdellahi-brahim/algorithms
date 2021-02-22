@@ -21,13 +21,13 @@ int main(){
         pos = buffer.find(" ");
         instruction = buffer.substr(0, pos);
         buffer.erase(0, pos + 1);
-        //product
-        pos = buffer.find(" ");
-        count = strtol(buffer.substr(0, pos).c_str(), &end, 10);
-        buffer.erase(0, pos + 1);
         //query instruction
         if(instruction == "QUERY"){
-            product = count;
+            //product
+            pos = buffer.find(" ");
+            product = strtol(buffer.substr(0, pos).c_str(), &end, 10);
+            buffer.erase(0, pos + 1);
+
             auto it = map.find(product);
             if(it == map.end())
                 cout << '0' << endl;
@@ -36,6 +36,10 @@ int main(){
         }
         //count
         else{
+            pos = buffer.find(" ");
+            count = strtol(buffer.substr(0, pos).c_str(), &end, 10);
+            buffer.erase(0, pos + 1);
+
             pos = buffer.find(" ");
             product = strtol(buffer.substr(0, pos).c_str(), &end, 10);
             //add instuction
