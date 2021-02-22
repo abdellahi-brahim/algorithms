@@ -7,23 +7,20 @@
 using namespace std;
 
 int main(){
-    /*Performance*/
-    std::ios_base::sync_with_stdio(0);
-    std::cin.tie(0);
+    vector <int> arr;
 
-    std::vector<int> arr;
-
-    int tmp;
     string buffer;
+
+    char *end;
+    long int tmp;
     
     while(getline(cin, buffer)){
-        tmp = std::stoi(buffer);
+        tmp = strtol(buffer.c_str(), &end, 10);
         arr.push_back(tmp);
     }
 
     sort(arr.begin(), arr.end());
-
-    int j, length = arr.size();
-    for(j = 0; j < length; ++j)
-        std::cout << arr[j] << endl;
+    
+    for(int number : arr)
+        cout << number << endl;
 }
