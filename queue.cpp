@@ -26,9 +26,8 @@ int main(){
 
     while(!queue.empty()){
         info tmp = queue.front();
-        if(tmp.arrival > time){
+        if(tmp.arrival > time)
             time = tmp.arrival;
-        }
         time = time + tmp.processing;
         queue.pop();
     }
