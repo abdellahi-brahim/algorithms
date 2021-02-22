@@ -1,68 +1,44 @@
 #include <iostream>
 #include <string>
-#include <cctype>
+#include <sstream>
 #include <stack>
 
 using namespace std;
 
 int main(){
-    size_t pos = 0;
-    string buffer;
-    string token;
-    
     int n;
-
+    
     cin >> n;
-    getchar();
+    cin.ignore();
 
     for(int i = 0; i < n; ++i){
-        getline(cin, buffer);
-
         stack <int> stack;
-        int result = 0;
-        int init = 0;
+        string buffer, token;
 
-        do{
-            pos = buffer.find(" ");
-            token = buffer.substr(0, pos);
+        getline(cin, buffer, '\n');
+        stringstream ss(buffer);
 
-            char *end;
-            long int number;
-
-            number = strtol(token.c_str(), &end, 10);
-
-            if(token[0] != 0 && number == 0){
-                switch (token[0]){
-                //soma
-                case '+':
-                    if(!stack.empty())
-                        result = result + stack.top();
-                    break;
-                //subtração    
-                case '-':
-                    if(!stack.empty())
-                        result = result - stack.top();
-                    break;
-                default:
-                    cout << "invalido" << endl;
-                    break;
-                }
-                if(!stack.empty())
-                    stack.pop();
+        while(!ss.eof()){
+            ss >> token;
+            
+            if(token == "-"){
+                int a = stack.top();
+                stack.pop();
+                int b = stack.top();
+                stack.pop();
+                stack.push(b-a);
             }
-            //adicionar numero na stack
+            else if(token == "+"){
+                int a = stack.top();
+                stack.pop();
+                int b = stack.top();
+                stack.pop();
+                stack.push(b+a);
+            }
             else{
-                if(init)
-                    stack.push(number);
-                else{
-                    result = number;
-                    init = 1;
-                }
+                stack.push(stoi(token));
             }
-
-            buffer.erase(0, pos + 1);
         }
-        while(pos != std::string::npos);
-        cout << result << endl;
+        cout << stack.top() << endl;
     }
 }
