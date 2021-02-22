@@ -32,5 +32,5 @@ int main(){
         queue.pop();
     }
 
-    cout << time;
+    cout << time << endl;
 }
