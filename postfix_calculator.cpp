@@ -9,8 +9,7 @@ int main(){
     size_t pos = 0;
     string buffer;
     string token;
-    string delimiter = " ";
-
+    
     int n;
 
     cin >> n;
@@ -24,24 +23,25 @@ int main(){
         int init = 0;
 
         do{
-            pos = buffer.find(delimiter);
+            pos = buffer.find(" ");
             token = buffer.substr(0, pos);
 
-            int base = 10;
             char *end;
             long int number;
 
-            number = strtol(token.c_str(), &end, base);
+            number = strtol(token.c_str(), &end, 10);
 
             if(token[0] != 0 && number == 0){
                 switch (token[0]){
                 //soma
                 case '+':
-                    result = result + stack.top();
+                    if(!stack.empty())
+                        result = result + stack.top();
                     break;
                 //subtração    
                 case '-':
-                    result = result - stack.top();
+                    if(!stack.empty())
+                        result = result - stack.top();
                     break;
                 default:
                     cout << "invalido" << endl;
@@ -60,10 +60,9 @@ int main(){
                 }
             }
 
-            buffer.erase(0, pos + delimiter.length());
+            buffer.erase(0, pos + 1);
         }
         while(pos != std::string::npos);
         cout << result << endl;
     }
 }
-
