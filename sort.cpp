@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 #include <vector>
-#include <array>
 #include <algorithm>
+#include <sstream>
 
 using namespace std;
 
@@ -10,17 +10,14 @@ int main(){
     vector <int> arr;
 
     string buffer;
-
-    char *end;
-    long int tmp;
     
-    while(getline(cin, buffer)){
-        tmp = strtol(buffer.c_str(), &end, 10);
-        arr.push_back(tmp);
+    while(getline(cin, buffer) && !buffer.empty()){
+        arr.push_back(stoi(buffer));
     }
 
     sort(arr.begin(), arr.end());
     
     for(int number : arr)
         cout << number << endl;
+
 }
