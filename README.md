@@ -69,18 +69,18 @@ Output
 **Explanation**
 
 Note: parenthesis denote the element where the pointer is.
-List before any instruction: (0)
-List after instruction #1:   (0) 2  
-List after instruction #2:   -1 (0) 2  
-List after instruction #3:   -1 0 (2)
-List after instruction #4:   -1 0 1 (2)
-List after instruction #5:   -1 0 1 (2) 3
-List after instruction #6:   -1 0 (1) 2 3
-List after instruction #7:   -1 (0) 1 2 3
-List after instruction #8:   (-1) 0 1 2 3
-List after instruction #9:   -3 (-1) 0 1 2 3
-List after instruction #10:  -3 -2 (-1) 0 1 2 3
-Final list:                  -3 -2 -1 0 1 2 3
+- List before any instruction: (0)
+- List after instruction #1:   (0) 2  
+- List after instruction #2:   -1 (0) 2  
+- List after instruction #3:   -1 0 (2)
+- List after instruction #4:   -1 0 1 (2)
+- List after instruction #5:   -1 0 1 (2) 3
+- List after instruction #6:   -1 0 (1) 2 3
+- List after instruction #7:   -1 (0) 1 2 3
+- List after instruction #8:   (-1) 0 1 2 3
+- List after instruction #9:   -3 (-1) 0 1 2 3
+- List after instruction #10:  -3 -2 (-1) 0 1 2 3
+- Final list:                  -3 -2 -1 0 1 2 3
 
 
 # E - Postfix calculator
@@ -100,11 +100,11 @@ Once the expression is fully processed the result will be the only element left 
 
 So the contents of the stack for the processing of that expression would be
 
-After push operation: 2
-After push operation: 2 3
-After push operation: 2 3 4
-After '-' operation:  2 -1
-After '+' operation:  1 
+- After push operation: 2
+- After push operation: 2 3
+- After push operation: 2 3 4
+- After '-' operation:  2 -1
+- After '+' operation:  1 
 **Input**
 The first line contains the number of postfix expressions to process. Then, each line of the following lines contains a postfix expression to evaluate.
 
@@ -148,11 +148,11 @@ Output
 	7
 Explanation
 
-Task #1 arrives at time 1, starts at time 1, and finishes at time 3
-Task #2 arrives at time 1, starts at time 3, and finishes at time 4
-Task #3 arrives at time 3, starts at time 4, and finishes at time 6
-Task #4 arrives at time 4, starts at time 6, and finishes at time 7
-System stops processing at time 7
+- Task #1 arrives at time 1, starts at time 1, and finishes at time 3
+- Task #2 arrives at time 1, starts at time 3, and finishes at time 4
+- Task #3 arrives at time 3, starts at time 4, and finishes at time 6
+- Task #4 arrives at time 4, starts at time 6, and finishes at time 7
+- System stops processing at time 7
 
 # G - Bowling shoes
 **Description**
@@ -190,16 +190,15 @@ Output
 	impossible
 **Explanation**
 
-Available sizes after instruction #1: [30]
-Available sizes after instruction #2: [30,50]
-Available sizes after instruction #3: [30,50,50]
-Available sizes after instruction #4: [30,50]
-Available sizes after instruction #5: [30,40,50]
-Available sizes after instruction #6: [30,50]
-Available sizes after instruction #7: [30]
-Available sizes after instruction #8: [30]
-Available sizes after instruction #9: [10,30]
-
+ - Available sizes after instruction #1: [30] 
+ - Available sizes after instruction #2: [30,50] 
+ - Available sizes after instruction #3:[30,50,50] 
+ - Available sizes after instruction #4: [30,50] 
+ - Available sizes after instruction #5: [30,40,50] 
+ - Available sizes after instruction #6: [30,50] 
+ - Available sizes after instruction #7: [30]
+ - Available sizes after instruction #8: [30] 
+ - Available sizes after instruction #9: [10,30]
 
 # H - Inventory Management
 **Description**
